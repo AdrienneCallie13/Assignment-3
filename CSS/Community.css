@@ -1,0 +1,851 @@
+html {
+    box-sizing: border-box;
+    font-family: Old Standard TT;
+    color: #555;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin-left: 10px;
+    background-color: #BCC4CC;
+}
+
+
+/* top navigation */
+
+.topnav {
+    background-color: #BCC4CC;
+    overflow: hidden;
+    font-family: oswald;
+}
+
+
+/* Style the links inside the navigation bar */
+
+.topnav a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding-top: 30px;
+    padding-right: 60px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+/* Hide the link that should open and close the topnav on small screens */
+
+.topnav .icon {
+    display: none;
+}
+
+
+/* When the screen is less than 600 pixels wide, hide all links */
+
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+    .topnav a {
+        display: none;
+    }
+    .side {
+        display: none;
+    }
+    .responsive-iframe {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 500;
+    }
+}
+
+
+/* The "responsive" class is added to the topnav with JavaScript */
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        position: relative;
+    }
+    .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
+@media (min-width: 6.25em) {
+    html {
+        font-size: 17px;
+    }
+}
+
+@media (min-width: 12.5em) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 18.75em) {
+    html {
+        font-size: 19px;
+    }
+}
+
+@media (min-width: 25em) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 31.25em) {
+    html {
+        font-size: 21px;
+    }
+}
+
+@media (min-width: 37.5em) {
+    html {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 43.75em) {
+    html {
+        font-size: 23px;
+    }
+}
+
+@media (min-width: 50em) {
+    html {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 56.25em) {
+    html {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 62.5em) {
+    html {
+        font-size: 26px;
+    }
+}
+
+@media (min-width: 68.75em) {
+    html {
+        font-size: 27px;
+    }
+}
+
+@media (min-width: 75em) {
+    html {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 81.25em) {
+    html {
+        font-size: 29px;
+    }
+}
+
+@media (min-width: 87.5em) {
+    html {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 93.75em) {
+    html {
+        font-size: 31px;
+    }
+}
+
+@media (min-width: 100em) {
+    html {
+        font-size: 32px;
+    }
+}
+
+@media (min-width: 106.25em) {
+    html {
+        font-size: 33px;
+    }
+}
+
+@media (min-width: 112.5em) {
+    html {
+        font-size: 34px;
+    }
+}
+
+@media (min-width: 118.75em) {
+    html {
+        font-size: 35px;
+    }
+}
+
+@media (min-width: 125em) {
+    html {
+        font-size: 36px;
+    }
+}
+
+
+/* Boxes styling for the entire page */
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* The fixed Side */
+
+.side {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 50px;
+    border-right: 1px dashed rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.5);
+    font-family: oswald;
+    text-transform: uppercase;
+    letter-spacing: .0875rem;
+    font-size: 9px;
+    -webkit-transition: all 0.3s cubic-bezier(0.05, 0.69, 0.14, 1);
+    transition: all 0.3s cubic-bezier(0.05, 0.69, 0.14, 1);
+}
+
+.side:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.side .side__inner {
+    position: relative;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.side a {
+    color: inherit;
+    word-spacing: 0;
+    -webkit-transition: all 0.3s cubic-bezier(0.05, 0.69, 0.14, 1);
+    transition: all 0.3s cubic-bezier(0.05, 0.69, 0.14, 1);
+}
+
+.side .top,
+.side .bottom {
+    position: absolute;
+    left: 0;
+    -webkit-transform: rotate(-90deg) perspective(1px);
+    transform: rotate(-90deg) perspective(1px);
+    -webkit-transform-origin: 50px 50px;
+    transform-origin: 50px 50px;
+    height: 50px;
+    line-height: 50px;
+    white-space: nowrap;
+    word-spacing: .5rem;
+}
+
+.side .top {
+    top: 25px;
+    text-align: right;
+    color: black;
+}
+
+.side .bottom {
+    top: auto;
+    bottom: 75px;
+}
+
+.side .bottom:hover a {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.side .bottom:hover a:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* The fixed Side end here */
+
+
+/* Support page navigation */
+
+.anchornav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.anchornav li {
+    display: block;
+}
+
+.anchornav li::after {
+    content: '';
+    width: 1.3rem;
+    display: block;
+    height: 2px;
+    background: black;
+}
+
+.anchornav li:last-child::after {
+    display: none;
+}
+
+.anchornav a {
+    display: block;
+    padding: 1em 0;
+    font-family: oswald;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.4px;
+    color: inherit;
+    -webkit-transition: all 0.3s cubic-bezier(0.05, 0.69, 0.14, 1);
+    transition: all 0.3s cubic-bezier(0.05, 0.69, 0.14, 1);
+}
+
+.anchornav a span {
+    display: inline;
+    padding: .5em 0 0;
+    opacity: .3;
+    letter-spacing: normal;
+    font-family: oswald;
+    text-transform: none;
+}
+
+.anchornav a:hover {
+    color: gray;
+}
+
+.anchornav a:hover span {
+    opacity: 1;
+    color: #181818;
+}
+
+
+/* Support page navigation end here */
+
+
+/* styling different sections start here*/
+
+.section {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    min-height: 60vh;
+    width: 100%;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    padding: 20vh 50px 20vh 75px;
+}
+
+.section svg {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.section svg.bottom {
+    bottom: 0;
+    top: auto;
+    fill: grey;
+}
+
+.section .section__inner {
+    height: 100%;
+    max-width: 800px;
+    margin: auto auto auto 0;
+}
+
+.section.section--hello {
+    background-color: #BCC4CC;
+    color: #181818;
+}
+
+.section.section--Travellers {
+    background-color: white;
+    color: #555;
+}
+
+.section.section--social {
+    background-color: #807C82;
+    color: white;
+}
+
+.section.section--social svg {
+    fill: #807C82;
+}
+
+.section.section--Reference {
+    background-color: #343436;
+    color: white;
+}
+
+.section.section--Reference svg {
+    fill: #343436;
+}
+
+
+/* styling different sections end here */
+
+
+/* Travellers forum section start here */
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h5 {
+    font-family: oswald;
+    font-weight: bold;
+    margin: 0 0 1em;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+
+/* Typography media query for letter spacing */
+
+@media (min-width: 30rem) {
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h5 {
+        letter-spacing: -2px;
+    }
+}
+
+
+/* Typography media query for letter spacing end */
+
+h1 a,
+.h1 a,
+h2 a,
+.h2 a,
+h3 a,
+.h3 a,
+h4 a,
+.h5 a {
+    color: inherit;
+}
+
+h1 a:hover,
+.h1 a:hover,
+h2 a:hover,
+.h2 a:hover,
+h3 a:hover,
+.h3 a:hover,
+h4 a:hover,
+.h5 a:hover {
+    border-bottom: .1875rem solid;
+}
+
+h1 span,
+.h1 span,
+h2 span,
+.h2 span,
+h3 span,
+.h3 span,
+h4 span,
+.h5 span {
+    color: #de5f5f;
+}
+
+h1,
+.h1 {
+    font-size: 1.2rem;
+}
+
+
+/* Typography media query for font-size */
+
+@media (min-width: 30rem) {
+    h1,
+    .h1 {
+        font-size: 2.5rem;
+    }
+}
+
+h2,
+.h2 {
+    font-size: 1.2rem;
+}
+
+@media (min-width: 30rem) {
+    h2,
+    .h2 {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* Typography media query for font-size ends */
+
+
+/* Travellers forum section end here */
+
+
+/* sociel media section start here */
+
+.pre {
+    display: inline-block;
+    font-size: 12px;
+    margin: 0;
+    opacity: .8;
+    letter-spacing: 1.4px;
+    word-spacing: .2rem;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    color: inherit;
+}
+
+.pre span {
+    font-size: .9em;
+    margin-right: .4em;
+    opacity: .5;
+}
+
+.pre:hover {
+    opacity: 1;
+}
+
+p {
+    font-size: .75rem;
+    line-height: 1.4;
+}
+
+p a {
+    font-weight: bold;
+    color: inherit;
+}
+
+p a:hover {
+    border-bottom: .1875rem solid;
+}
+
+.lead {
+    display: block;
+    font-size: .875rem;
+    margin: 0;
+}
+
+
+/* Typography media query for social media page */
+
+@media (min-width: 30rem) {
+    p {
+        font-size: .875rem;
+    }
+}
+
+@media (min-width: 30rem) {
+    .lead {
+        font-size: 1rem;
+    }
+}
+
+
+/* Typography media query for social media page ends */
+
+
+/* Social media button */
+
+ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 80%);
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    margin: 0 5px;
+}
+
+ul li a .fa {
+    font-size: 40px;
+    color: #262626;
+    line-height: 80px;
+    transition: .5s;
+    padding-right: 14px;
+}
+
+ul li a span {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 30px;
+    color: #262626;
+    letter-spacing: 4px;
+    transition: .5s;
+}
+
+ul li a {
+    text-decoration: none;
+    display: absolute;
+    display: block;
+    width: 210px;
+    height: 80px;
+    background: #fff;
+    text-align: left;
+    padding-left: 20px;
+    transform: rotate(-30deg) skew(25deg) translate(0, 0);
+    transition: .5s;
+    box-shadow: -20px 20px 10px rgba(0, 0, 0, .5);
+}
+
+ul li a:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    height: 100%;
+    width: 20px;
+    background: #b1b1b1;
+    transform: .5s;
+    transform: rotate(0deg) skewY(-45deg);
+}
+
+ul li a:after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    height: 20px;
+    width: 100%;
+    background: #b1b1b1;
+    transform: .5s;
+    transform: rotate(0deg) skewX(-45deg);
+}
+
+ul li a:hover {
+    transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
+    box-shadow: -50px 50px 50px rgba(0, 0, 0, .5);
+}
+
+ul li:hover .fa {
+    color: #fff;
+}
+
+ul li:hover span {
+    color: #fff;
+}
+
+ul li:hover:nth-child(1) a {
+    background: #3b5998;
+}
+
+ul li:hover:nth-child(1) a:before {
+    background: #365492;
+}
+
+ul li:hover:nth-child(1) a:after {
+    background: #4a69ad;
+}
+
+ul li:hover:nth-child(2) a {
+    background: #00aced;
+}
+
+ul li:hover:nth-child(2) a:before {
+    background: #097aa5;
+}
+
+ul li:hover:nth-child(2) a:after {
+    background: #53b9e0;
+}
+
+.social {
+    padding: 80px;
+}
+
+
+/* Social Media toggle button */
+
+button {
+    padding: .3rem;
+    background: #FFEEDB;
+    color: black;
+    font-family: Old Standard TT;
+    font-size: 1rem;
+    font-weight: normal;
+    outline: none;
+    border: none;
+    border-radius: .3rem;
+}
+
+button::after {
+    content: 'Text';
+    display: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:hover::after {
+    display: inline-block;
+}
+
+
+/* Social Media toggle button ends */
+
+
+/* sociel media section end here */
+
+
+/* reference section start here */
+
+
+/* Vue filter section */
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-family: Old Standard TT;
+    font-size: 30pt;
+    font-weight: normal;
+}
+
+.project-title {
+    font-size: 16pt
+}
+
+.filter {
+    font-family: arial;
+    padding: 6px 6px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.35s;
+}
+
+.filter.active {
+    box-shadow: 0px 1px 3px 0px #00000026;
+}
+
+.filter:hover {
+    background: lightgray;
+}
+
+.projects {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.projects-enter {
+    transform: scale(0.5) translatey(-80px);
+    opacity: 0;
+}
+
+.projects-leave-to {
+    transform: translatey(30px);
+    opacity: 0;
+}
+
+.projects-leave-active {
+    position: absolute;
+    z-index: -1;
+}
+
+.project {
+    transition: all .35s ease-in-out;
+    margin: 10px;
+    box-shadow: 0px 2px 8px lightgrey;
+    border-radius: 3px;
+    width: 180px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-image-wrapper {
+    position: relative;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    opacity: 0.09;
+    background: linear-gradient(to bottom, rgba(0, 210, 247, 0.65) 0%, rgba(0, 210, 247, 0.64) 1%, rgba(0, 0, 0, 0) 100%), linear-gradient(to top, rgba(247, 0, 156, 0.65) 0%, rgba(247, 0, 156, 0.64) 1%, rgba(0, 0, 0, 0) 100%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.project-image {
+    width: 100%;
+    height: 150px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+
+/* Vue filter section end */
+
+
+/* reference section end here */
