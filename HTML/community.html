@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Community.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/628c8d2499.js" crossorigin="anonymous"></script>
+</head>
+
+<!-- navigation bar -->
+
+<div class="topnav" id="myTopnav">
+    <a href="../HTML/Community.html">Community</a>
+    <a href="../HTML/Support.html">Support</a>
+    <a href="../HTML/Host.html">Services</a>
+    <a href="../HTML/Explore.html">Explore</a>
+    <a href="../HTML/Discover.html">Discover</a>
+    <a href="../HTML/Home.html">Home</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<!-- navigation bar end -->
+
+<body>
+
+    <script src="https://use.typekit.net/ehh4lya.js"></script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
+
+    <!-- side-navigation  -->
+
+    <nav class="side">
+        <div class="side__inner">
+            <div class="top"><a href="#">AROUND US</a></div>
+            <div class="bottom">
+                <a>Around Us</a>
+                <a>Wonder Often.</a>
+                <a>Wonder Always.</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- side-navigation end -->
+
+    <!-- page navigation -->
+
+    <section class="section section--community" id="community">
+        <div class="section__inner">
+            <div class="block">
+                <h2>Community</h2>
+                <ul-1 class="anchornav">
+                    <li-1><a href="#Travellers">Travellers Forum</a></li-1>
+                    <li-1><a href="#Social Media">Social Media</a></li-1>
+                    <li-1><a href="#Reference">Reference</a></li-1>
+                </ul-1>
+            </div>
+        </div>
+    </section>
+
+    <!-- page navigation end -->
+
+    <!-- travellers seciton -->
+
+    <section class="section section--Travellers" id="Travellers">
+        <div class="section__inner">
+            <div class="block-2">
+                <a class="pre" href="#Travellers"><span>#1</span>Travellers Forum</a>
+                <h1>Traveller Forum</h1>
+                <p class="lead"> <iframe class="responsive-iframe" src="https://www.traveller.com.au/firsthand-encounters-8p9l" width="1000px" height="500" style="border:none;">
+                </iframe>
+                    <b></b> <b> </b>
+                    <a href="https://www.qantas.com/au/en/travel-info/travel-advice/first-time-flyers.html?int_cam=au%3Atravel-advice%3Aarticle%3Afirst-time-flyers%3Aen%3Ann"></a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- travellers seciton end -->
+
+    <!-- social media section -->
+
+    <section class="section section--social" id="Social Media">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
+        <polygon points="100 0 100 10 0 10" /></svg>
+
+
+        <div class="section__inner">
+            <div class="block">
+                <a class="pre" href="#Social Media"><span>#2</span>Social Media</a>
+                <h2>Social Media</h2>
+                <div id="app2">
+                    <button @click="text.show = !text.show">Toggle </button>
+                    <p v-show="text.show" class="p">{{text.other}}</p>
+                </div>
+            </div>
+
+
+            <div class="social">
+
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/groups/flyingtoworld/" target="_blank" rel="noopener noreferrer"><span>Facebook</span></a>
+                    </li>
+
+                    <li>
+                        <a href="https://twitter.com/etravelforum?lang=en" target="_blank" rel="noopener noreferrer"><span>Twitter</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- social media section end  -->
+
+    <!-- Reference section -->
+
+    <section class="section section--Reference" id="Reference">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
+        <polygon points="100 10 0 0 0 10" /> 
+    </svg>
+        <div class="section__inner">
+            <div class="block">
+                <a class="pre" href="#Reference"><span>#2</span>Reference</a>
+                <h2>Reference</h2>
+            </div>
+
+            <!-- Vue images filters start here -->
+
+            <div class="section__inner">
+                <div id="app">
+                    <div class="title-container">
+                        <div>
+
+                        </div>
+                        <div class="filters">
+                            <span class="filter" v-bind:class="{ active: currentFilter === 'ALL' }" v-on:click="setFilter('ALL')">ALL</span>
+                            <span class="filter" v-bind:class="{ active: currentFilter === 'VIEWS' }" v-on:click="setFilter('VIEWS')">VIEWS</span>
+                            <span class="filter" v-bind:class="{ active: currentFilter === 'SKYSCRAPER' }" v-on:click="setFilter('SKYSCRAPER')">SKYSCRAPER</span>
+                            <span class="filter" v-bind:class="{ active: currentFilter === 'FUN' }" v-on:click="setFilter('FUN')">FUN</span>
+                        </div>
+                    </div>
+
+                    <transition-group class="projects" name="projects">
+                        <div class="project" v-if="currentFilter === project.category || currentFilter === 'ALL'" v-bind:key="project.title" v-for="project in projects">
+                            <div class="project-image-wrapper">
+                                <img class="project-image" v-bind:src="project.image">
+                                <div class="gradient-overlay"></div>
+                                <div class="circle">
+                                    <span class="project-title">{{project.title}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </transition-group>
+                </div>
+            </div>
+
+            <!-- Vue images filters end here -->
+
+        </div>
+    </section>
+
+    <!-- Reference section end -->
+
+</body>
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="../JS/Community.js"></script>
+
+</html>
