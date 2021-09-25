@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Services</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../JS/Host.js"></script>
+    <link rel="stylesheet" href="../CSS/Host.css">
+    <script src="https://kit.fontawesome.com/628c8d2499.js" crossorigin="anonymous"></script>
+</head>
+
+<!-- navigation bar -->
+
+<div class="topnav" id="myTopnav">
+    <a href="../HTML/Community.html">Community</a>
+    <a href="../HTML/Support.html">Support</a>
+    <a href="../HTML/Host.html">Services</a>
+    <a href="../HTML/Explore.html">Explore</a>
+    <a href="../HTML/Discover.html">Discover</a>
+    <a href="../HTML/Home.html">Home</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<!-- navigation bar end -->
+
+<body>
+
+    <!-- form section -->
+
+    <div class="container-1">
+        <form id="app">
+
+            <!-- Section 1 which is the type of traveller step -->
+            <section v-if="step == 1" style="justify-content: center; padding-top: 50px;">
+                <h1> Would like to share your travelling experiences? Sign up now!</h1>
+                <div class="panel panel-warning-1">
+                    <h2>Step 1</h2>
+
+                    <span v-for="e in errors" style="color: crimson;">{{ e }}</span>
+                    <h3>Type of Traveller</h3>
+
+                    <div class="form-group">
+                        <input type="radio" id="one" value="One" v-model="form.option">
+                        <label for="one">Family</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="radio" id="two" value="Two" v-model="form.option">
+                        <label for="two">Traveller</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="radio" id="three" value="Three" v-model="form.option">
+                        <label for="two">Backpacker</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="radio" id="four" value="Four" v-model="form.option">
+                        <label for="two">Holiday Maker</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="radio" id="five" value="Five" v-model="form.option">
+                        <label for="two">Business Traveller</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="radio" id="six" value="Six" v-model="form.option">
+                        <label for="two">Adventure Traveller</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="radio" id="seven" value="Seven" v-model="form.option">
+                        <label for="two">Long Term Travellers</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 1 end -->
+
+
+            <!-- section 2 which is the verification step -->
+
+            <section v-if="step == 2" style="justify-content: center; padding-top: 50px;">
+                <div class="panel panel-warning-1">
+                    <h2>Step 2</h2>
+                    <span v-for="e in errors" style="color: crimson;">{{ e }}</span>
+                    <h3>Verification</h3>
+                    <div class="container">
+                        <i class="title">Full name</i>
+                        <input v-model="form.name" type="text" placeholder="What is your full name?" class="form-control form-control-lg">
+                    </div>
+
+                    <div class="container">
+                        <i class="title">Phone Number</i>
+                        <input v-model="form.phone" type="text" placeholder="What is your phone number?" class="form-control form-control-lg">
+                    </div>
+
+                    <div class="container">
+                        <i class="title">E-mail Address</i>
+                        <input v-model="form.email" type="text" placeholder="What is your email address?" class="form-control form-control-lg">
+                    </div>
+
+                    <div class="container">
+                        <i class="title">Street Address</i>
+                        <input v-model="form.address" type="text" placeholder="What is your address?" class="form-control form-control-lg">
+                    </div>
+
+
+                    <div class="container">
+                        <i class="material-icons prefix">State</i>
+                        <input v-model="form.state" type="text" placeholder="What is your state?" class="form-control form-control-lg">
+                    </div>
+
+                    <div class="container">
+                        <i class="material-icons prefix">Password</i>
+                        <input v-model="form.password" type="text" placeholder="Type your password" class="form-control form-control-lg">
+                    </div>
+
+                    <div class="container">
+                        <i class="material-icons prefix">Re-enter Password</i>
+                        <input v-model="form.repassword" type="text" placeholder="Re-type your password" class="form-control form-control-lg">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2 end -->
+
+            <!-- section 3 which is the final step (tell us about yourself)-->
+
+            <section v-if="step == 3" style="justify-content: center; padding-top: 50px;">
+                <div class="panel panel-warning-1">
+                    <h2>Step 3</h2>
+                    <span v-for="e in errors" style="color: crimson;">{{ e }}</span>
+                    <h3>Tell us more about yourself</h3>
+
+                    <div class="container">
+                        <i class="material-icons prefix">A brief about yourself</i>
+                        <textarea v-model="form.message" placeholder="Type your message here" class="form-control form-control-lg"></textarea>
+                    </div>
+
+                    <div class="container">
+                        <i class="material-icons prefix">Website link</i>
+                        <textarea v-model="form.blog" placeholder="Please insert your website/blog link" class="form-control form-control-lg"></textarea>
+                        <input type="checkbox" id="term" value="term" v-model="form.checked">
+                        <label for="term"><a href="#">I have read and accept the terms of contract</a></label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3 end -->
+
+            <!-- form buttons start here -->
+
+            <div class="text-center">
+                <transition name="fade" mode="out-in"></transition>
+                <button type="button" class="btn" v-if="step != 1" @click.prevent="prevstep"> Previous step </button>
+                <button type="button" class="btn btn-danger" v-if="step != totalsteps" @click.prevent="nextstep"> Next step </button>
+                <button type="button" class="btn btn-danger" v-if="step == 3" @click.prevent="submit"> Submit </button>
+                </transition>
+            </div>
+
+            <!-- form buttons end here -->
+
+        </form>
+    </div>
+
+    <!-- form section end -->
+
+    <!-- vue form script -->
+
+    <script>
+        const App = new Vue({
+
+            el: "#app",
+
+            data: {
+                step: 1,
+                totalsteps: 3,
+                errors: [],
+
+
+                form: {
+                    option: null,
+                    email: null,
+                    phone: null,
+                    message: null,
+                    checked: null,
+                }
+            },
+
+            methods: {
+
+                prevstep: function() {
+
+
+
+                    this.step--;
+
+
+                },
+
+                nextstep: function() {
+
+                    if (this.step == 1) {
+                        if (!this.form.option) {
+
+
+                            this.errors = 'Please fill out the form.';
+                            return false;
+                        }
+                    }
+
+                    this.errors = null;
+
+                    if (this.step == 2) {
+                        if (!this.form.name) {
+
+
+                            this.errors = 'Please fill out your Full Name';
+                            return false;
+                        }
+                    }
+
+                    if (this.step == 2) {
+                        if (!this.form.phone) {
+
+
+                            this.errors = 'Please fill out your Phone Number';
+                            return false;
+                        }
+                    }
+
+                    this.errors = null;
+
+                    if (this.step == 2) {
+                        if (!this.form.email) {
+
+
+                            this.errors = 'Please fill out your E-mail Address';
+                            return false;
+                        }
+                    }
+
+                    if (this.step == 2) {
+                        if (!this.form.address) {
+
+
+                            this.errors = 'Please fill out your current address';
+                            return false;
+                        }
+                    }
+
+                    if (this.step == 2) {
+                        if (!this.form.state) {
+
+
+                            this.errors = 'Please fill out your state';
+                            return false;
+                        }
+                    }
+
+                    if (this.step == 2) {
+                        if (!this.form.password) {
+
+
+                            this.errors = 'Please type your password';
+                            return false;
+                        }
+                    }
+
+                    if (this.step == 2) {
+                        if (!this.form.repassword) {
+
+
+                            this.errors = 'Please re-type your password';
+                            return false;
+                        }
+                    }
+
+                    this.errors = null;
+
+
+                    if (this.step == 3) {
+                        if (!this.form.message) {
+
+
+                            this.errors = 'Please fill out your message';
+                            return false;
+                        }
+                    }
+
+                    if (this.step == 3) {
+                        if (!this.form.blog) {
+
+
+                            this.errors = 'Please insert your website link';
+                            return false;
+                        }
+                    }
+
+                    if (this.step == 3) {
+                        if (!this.form.checked) {
+
+
+                            this.errors = 'Please fill out your Term and Conditions';
+                            return false;
+                        }
+                    }
+
+                    this.step++;
+
+
+                },
+
+                submit: function() {
+
+                    if (this.step == 3) {
+                        if (!this.form.message) {
+
+
+                            this.errors = 'Please fill out your message';
+                            return false;
+                        }
+                    }
+
+                    if (this.step == 3) {
+                        if (!this.form.blog) {
+
+
+                            this.errors = 'Please insert your website link';
+                            return false;
+                        }
+                    }
+
+                    if (this.step == 3) {
+                        if (!this.form.checked) {
+
+
+                            this.errors = 'Please fill out your Term and Condition';
+                            return false;
+                        }
+                    }
+
+                    this.errors = null;
+                    alert('This has been sent. Please allow us 3-5 days to verified your account. Thank you for signing up!');
+
+
+                },
+
+            },
+
+            mounted() {
+
+            }
+        });
+    </script>
+
+    <!-- vue form script end -->
+
+</body>
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="../form test/app.js"></script>
+
+
+</html>

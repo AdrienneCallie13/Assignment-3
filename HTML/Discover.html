@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Discover</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/628c8d2499.js" crossorigin="anonymous"></script>
+    <script src="../JS/Discover.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Discover.css" type="text/css" />
+</head>
+
+<!-- navigation bar -->
+
+<div class="topnav" id="myTopnav">
+    <a href="../HTML/Community.html">Community</a>
+    <a href="../HTML/Support.html">Support</a>
+    <a href="../HTML/Host.html">Services</a>
+    <a href="../HTML/Explore.html">Explore</a>
+    <a href="../HTML/Discover.html">Discover</a>
+    <a href="../HTML/Home.html">Home</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<!-- navigation bar end -->
+
+<body>
+
+    <!-- heading text -->
+
+    <div id="app">
+        <post title="Explore The World"></post>
+    </div>
+
+    <p>We seek to provide the most authentic content from adventure explorers</p>
+    <p>and travellers around the world. Our long-term mission is to aducate, </p>
+    <p>and inspire all people to experience.</p>
+
+    <!-- heading text end -->
+
+    <!-- Vue country list -->
+
+    <div id="card">
+        <h2 style="text-align: center; font-family: Old Standard TT; color: white;"> Let's list down your dream country!</h2>
+        <div style="text-align: center; justify-content: center; align-items: center;">
+            <input id="itemForm" v-on:keypess.enter="addItem" />
+            <button v-on:click="addItem">Add Country</button>
+        </div>
+        <ul style="align-items: center; text-align: center; justify-content: center; color: white;">
+            <li style="text-align: center; justify-content: center; align-items: center;" v-for="(item, index) in items">
+                {{ item.text }}
+                <button v-on:click="deleteItem(index)">X</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Vue country list end-->
+
+
+    <!-- blog cards -->
+
+    <div class="container">
+        <div class="box">
+            <a href="https://almostlanding-bali.com/seminyak-accommodation-guide-stay-seminyak/" target="_blank" rel="noopener noreferrer">
+                <img src="../Images/Discover page assets/Bali.png" style="width:300px; height: 400px; border-radius: 25px; -moz-box-shadow: 4px 4px 5px #ccc;
+                -webkit-box-shadow: 4px 4px 5px #ccc; box-shadow: 4px 4px 5px #ccc;">
+        </div>
+        <div class="box">
+            <a href="https://www.travellingwithnikki.com/2021/04/venice-travel-tips-and-advice/" target="_blank" rel="noopener noreferrer">
+                <img src="../Images/Discover page assets/Italy.png" style="width:300px; height: 400px; border-radius: 25px; -moz-box-shadow: 4px 4px 5px #ccc;
+                -webkit-box-shadow: 4px 4px 5px #ccc; box-shadow: 4px 4px 5px #ccc;">
+        </div>
+        <div class="box">
+            <a href="https://southaustralia.com/travel-blog/driving-from-melbourne-to-adelaide" target="_blank" rel="noopener noreferrer">
+                <img src="../Images/Discover page assets/Australia.png" style="width:300px; height: 400px; border-radius: 25px; -moz-box-shadow: 4px 4px 5px #ccc;
+                -webkit-box-shadow: 4px 4px 5px #ccc; box-shadow: 4px 4px 5px #ccc;">
+        </div>
+
+    </div>
+
+    <!-- blog cards end -->
+
+
+</body>
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="../JS/Discover.js" charset="utf-8"></script>
+
+
+</html>

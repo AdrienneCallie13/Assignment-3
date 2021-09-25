@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Support</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Support.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script src="https://kit.fontawesome.com/628c8d2499.js" crossorigin="anonymous"></script>
+</head>
+
+<!-- navigation bar -->
+
+<div class="topnav" id="myTopnav">
+    <a href="../HTML/Community.html">Community</a>
+    <a href="../HTML/Support.html">Support</a>
+    <a href="../HTML/Host.html">Services</a>
+    <a href="../HTML/Explore.html">Explore</a>
+    <a href="../HTML/Discover.html">Discover</a>
+    <a href="../HTML/Home.html">Home</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<!-- navigation bar end -->
+
+<body>
+
+    <!-- side-navigation  -->
+
+    <nav class="side">
+        <div class="side__inner">
+            <div class="top"><a href="#">AROUND US</a></div>
+            <div class="bottom">
+                <a>Around Us</a>
+                <a>Wonder Often.</a>
+                <a>Wonder Always.</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- side-navigation end -->
+
+    <!-- support page navigation -->
+
+    <section class="section section--support" id="support">
+        <div class="section__inner">
+            <div class="block">
+                <h2>Support</h2>
+                <ul class="anchornav">
+                    <li><a href="#Travel">Travel Guide </a></li>
+                    <li><a href="#Help">Help Hub</a></li>
+                    <li><a href="#Documentation">Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- support page navigation end -->
+
+    <!-- travel guide seciton -->
+
+    <section class="section section--Travel" id="Travel">
+        <div class="section__inner">
+            <div class="block">
+                <a class="pre" href="#Travel"><span>#1</span>Travel Guide</a>
+                <h1>Travel Guide</h1>
+                <p class="lead">
+                    <b>At the airport,</b> Travel for the first time can be a challenging experience. <b> Around Us</b> We want to make your journey as enjoyable as possible with our short guide for a safe journey. Find out more on our <a href="https://www.qantas.com/au/en/travel-info/travel-advice/first-time-flyers.html?int_cam=au%3Atravel-advice%3Aarticle%3Afirst-time-flyers%3Aen%3Ann">airline partner website.</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- travel guide seciton end -->
+
+    <!-- help hub section -->
+
+    <section class="section section--Help" id="Help">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
+        <polygon points="100 0 100 10 0 10" /></svg>
+
+        <!-- Query box start here -->
+
+        <div class="section__inner">
+            <div class="block">
+                <a class="pre" href="#Help"><span>#2</span>Help Hub</a>
+                <h2>Want to contact us?</h2>
+
+                <div id="app-1">
+                    <div class="field">
+                        <label class="label">Your Inquiry</label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Write your message something!" v-model="message" v-on:input="check"></textarea>
+                            <p :class="{help: true, 'is-danger': remaining==0}">{{instruction}}</p>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <button class="submit" v-on:click="warn('We are very sorry, due to unforeseen high demand we are not able to process your inquiry at this time. Please contact our Call Center for faster service.', $event)">  Submit </button>
+                        <button class="reset" @click="message=''">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Query box end here -->
+
+        <!-- call centre button start here -->
+
+        <div class="block-1">
+            <div>
+                <p>Or give us a call</p>
+                <div id="call-button">
+                    <button class="call" @click="show = !show">
+                      Call Centre
+                    </button>
+                    <transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave" v-bind:css="false">
+                        <p v-if="show">
+                            For faster service, plase call 1 800 251 259.
+                        </p>
+                    </transition>
+                </div>
+            </div>
+        </div>
+
+        <!-- call centre button start here -->
+
+    </section>
+
+    <!-- help hub section end -->
+
+    <!-- documentation section -->
+
+    <section class="section section--Documentation" id="Documentation">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
+        <polygon points="100 10 0 0 0 10" />
+    </svg>
+
+        <div class="section__inner">
+            <div class="block">
+                <a class="pre" href="#Documentation"><span>#3</span>Documentation</a>
+                <h2>Documentation</h2>
+            </div>
+
+            <!-- // Vue carousel components start here // -->
+
+            <div id="app-carousel">
+                <carousel-component>
+                    <carousel-item>
+                        <p>Paris, Eiffel Tower.</p>
+                        <img class="image1" width="650" alt="Paris" src="../Images/Carousel-images/EiffelTower.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>United States.</p>
+                        <img class="image2" width="650" alt="Cliff" src="../Images/Carousel-images/Cliff.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Seoul, Korea.</p>
+                        <img class="image3" width="650" alt="Ocean" src="../Images/Carousel-images/Ocean.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Hallstatt, Austria.</p>
+                        <img class="image4" width="650" alt="House" src="../Images/Carousel-images/House.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Bali, Indonesia.</p>
+                        <img class="image5" width="650" alt="Indonesia" src="../Images/Carousel-images/indonesia.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Florida.</p>
+                        <img class="image6" width="650" alt="Florida" src="../Images/Carousel-images/florida.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Disneyland.</p>
+                        <img class="image7" width="650" alt="Disneyland" src="../Images/Carousel-images/disneyland.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Kuala Lumpur, Malaysia.</p>
+                        <img class="image8" width="650" alt="Malaysia" src="../Images/Carousel-images/malaysia.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Bangkok, Thailand</p>
+                        <img class="image9" width="650" alt="Thailand" src="../Images/Carousel-images/thailand.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Abu Dhabi, Dubai</p>
+                        <img class="image10" width="650" alt="Dubai" src="../Images/Carousel-images/sky.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Hongkong.</p>
+                        <img class="image11" width="650" alt="Hongkong" src="../Images/Carousel-images/hongkong.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Saudi Arbia.</p>
+                        <img class="image12" width="650" alt="arab" src="../Images/Carousel-images/Arab.jpg">
+                    </carousel-item>
+                    <carousel-item>
+                        <p>Melbourne.</p>
+                        <img class="image13" width="650" alt="melbourne" src="../Images/Carousel-images/melbourne.jpg">
+                    </carousel-item>
+                </carousel-component>
+            </div>
+
+            <!-- // Vue carousel components end here // -->
+
+            <!-- vue  carousel script -->
+
+            <script type="text/x-template" id="carousel-item-template">
+                <div class="carousel-item">
+                    <slot></slot>
+                </div>
+            </script>
+
+            <script src="https://unpkg.com/vue"></script>
+            <script type="text/javascript">
+                Vue.component('carousel-component', {
+                    render: function(createElement) {
+                        return createElement('div', {
+                                class: 'carousel-component'
+                            },
+                            this.items.map((item, index) =>
+                                createElement('div', {
+                                    'class': 'carousel-page' + (this.current === index ? ' active' : ''),
+                                    style: {
+                                        transform: `translate3d(${this.position(index) * 100}%, 0, 0)`,
+                                    }
+                                }, [item])
+                            ).concat([
+                                createElement('button', {
+                                    'class': 'carousel-nav-prev',
+                                    on: {
+                                        click: () => {
+                                            this.decreaseCurrent();
+                                        }
+                                    }
+                                }, 'Prev'),
+                                createElement('button', {
+                                    'class': 'carousel-nav-next',
+                                    on: {
+                                        click: () => {
+                                            this.increaseCurrent();
+                                        }
+                                    }
+                                }, 'Next')
+                            ])
+                        );
+                    },
+                    data: function() {
+                        return {
+                            current: 0
+                        };
+                    },
+                    computed: {
+                        items: function() {
+                            return this.$slots.default.filter(function(item) {
+                                return item.componentOptions !== undefined &&
+                                    item.componentOptions.tag === 'carousel-item';
+                            });
+                        }
+                    },
+                    methods: {
+                        decreaseCurrent: function() {
+                            this.current += this.items.length - 1;
+                            this.current %= this.items.length;
+                        },
+                        increaseCurrent: function() {
+                            this.current += 1;
+                            this.current %= this.items.length;
+                        },
+                        position: function(index) {
+                            if (index === this.current) return 0;
+                            if (index === (this.current + 1) % this.items.length) return 1;
+                            return -1;
+                        }
+                    }
+                });
+                Vue.component('carousel-item', {
+                    template: '#carousel-item-template',
+                });
+                new Vue({
+                    el: '#app-carousel'
+                });
+            </script>
+
+            <!-- vue carousel script ends -->
+
+        </div>
+
+
+        <!-- // Vue carousel end // -->
+
+        <!-- documentation section end-->
+
+</body>
+
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="../JS/Support.js"></script>
+
+</html>
